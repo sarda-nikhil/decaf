@@ -1,0 +1,6 @@
+{
+  "author": "Nikhil Sarda <nikhilsarda.iitkgp@gmail.com>",
+  "name": "decaf",
+  "description": "Coffeescript/Javascript decorators for various purposes",
+  "version": "0.0.5",
+}
