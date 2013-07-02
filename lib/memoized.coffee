@@ -1,6 +1,7 @@
 basic = require './basic.js'
 util = require './util.js'
 
+# Basic memoized
 this.memoized = (base) ->
     memos = {}
     ->
@@ -9,3 +10,4 @@ this.memoized = (base) ->
         memos[key]
       else
         memos[key] = base.apply(this, arguments)
+
