@@ -11,3 +11,20 @@ this.throttled = (rate) ->
                 base.apply(this, arguments)
             else
                 console.log("Rate exceeded")
+
+this.retry_delay = (tries, delay=2, backoff=3) ->
+    (base) ->
+        # TODO Do some value checks
+        ->
+            mtries = tries
+            mdelay = delay
+            try
+                if mtries > 0
+                    base.apply(this, argument)
+                mtries -=1
+            catch
+                while mtries > 0
+                    setTimeout(__value__=base.apply(this, argument), mdelay)
+                    if __value__? then break
+                    mdelay *= backoff
+                    mtries -= 1
