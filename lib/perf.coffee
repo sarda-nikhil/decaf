@@ -22,7 +22,7 @@ this.retry_delay = (tries, delay=2, backoff=3) ->
                 if mtries > 0
                     base.apply(this, argument)
                 mtries -=1
-            catch
+            catch error
                 while mtries > 0
                     setTimeout(__value__=base.apply(this, argument), mdelay)
                     if __value__? then break
