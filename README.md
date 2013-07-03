@@ -5,6 +5,7 @@ Some utility decorators (function functions) for Coffeescript
 
 Here is an example session
 
+```coffeescript
  coffee> prf = require('./profiling.js') #Decorators useful for profiling
  { countcalls: [Function],
  logexceptionargs: [Function] }
@@ -78,3 +79,4 @@ Here is an example session
  Function called 14 times
  Function called 15 times
  5
+```
