@@ -28,3 +28,5 @@ this.retry_delay = (tries, delay=2, backoff=3) ->
                     if __value__? then break
                     mdelay *= backoff
                     mtries -= 1
+
+this.deprecated = basic.before -> console.log("Warning! Function has been deprecated")
