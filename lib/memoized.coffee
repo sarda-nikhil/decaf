@@ -11,3 +11,18 @@ this.memoized = (base) ->
       else
         memos[key] = base.apply(this, arguments)
 
+# TTL cached
+this.ttlCache = (ttl) ->
+    (base) ->
+        t = null
+        cachedVal = null
+        ->
+          if not cachedVal?
+            t = new Date().getTime
+            cachedVal = base.apply(this, arguments)
+          else
+            _temp = new Date().getTime
+            if t + ttl < _temp
+                t = _temp
+                cachedVal = base.apply(this, arguments)
+          cachedVal
